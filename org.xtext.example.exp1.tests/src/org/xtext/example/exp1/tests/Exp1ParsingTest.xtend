@@ -38,7 +38,6 @@ class Exp1ParsingTest {
 		validationTestHelper.assertNoErrors(model)
 	}
 	
-	//rever depois
 	@Test
 	def testaExpressaoAnd() {
 		val model = '''
@@ -49,9 +48,9 @@ class Exp1ParsingTest {
 	
 	
 	@Test
-	def testaExpressaoSomaValor() {
+	def testaExpressaoNotComBooleano() {
 		val model = '''
-			15+5
+			not true and false
 		'''.parse
 		validationTestHelper.assertNoErrors(model)
 	}
