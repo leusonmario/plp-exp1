@@ -1,0 +1,50 @@
+grammar org.xtext.example.exp1.Exp1 with org.eclipse.xtext.common.Terminals
+
+generate exp1 "http://www.xtext.org/example/exp1/Exp1"
+
+Exp1:
+	expressoes+=Expressao*;
+	
+Expressao:
+	ExpCondicionalOr
+	;
+
+ExpCondicionalOr :
+	ExpCondicionalAnd ("or" ExpCondicionalAnd)*
+;
+
+ExpCondicionalAnd :
+	ExpIgualdade ("and" ExpIgualdade)*
+;
+
+ExpIgualdade :
+	ExpAritmetica ("==" ExpAritmetica)?
+;
+
+ExpAritmetica :
+	ExpConcatenacao (("+" | "-") ExpConcatenacao)*
+;
+
+ExpConcatenacao : 
+	ExpUnaria ("++" ExpUnaria)*
+;
+
+ExpUnaria : 
+	"-" Expressao | "not" Expressao | "length" Expressao | ValorConcreto
+;
+
+ValorConcreto :
+	VALORINTEIRO | VALORBOOLEANO | VALORSTRING
+;
+
+terminal VALORINTEIRO:
+	('1'..'9')('0'..'9')*
+;
+
+terminal VALORBOOLEANO:
+	'true' | 'false'
+;
+
+terminal VALORSTRING:
+	('a'..'z')?
+;

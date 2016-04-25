@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+	<extension point="org.eclipse.emf.ecore.generated_package">
+		<package 
+			uri = "http://www.xtext.org/example/exp1/Exp1"
+			class = "org.xtext.example.exp1.exp1.Exp1Package"
+			genModel = "model/generated/Exp1.genmodel" />
+	</extension>
+</plugin>
